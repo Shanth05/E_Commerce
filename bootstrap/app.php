@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'rolemanager'->RoleManager::class
+            'rolemanager' => RoleManager::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
