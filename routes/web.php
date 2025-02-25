@@ -15,9 +15,15 @@ Route::get('/dashboard', function () {
 
 //admoin routees
 Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
-    Route::controller(AdminMainController::class)->group(function () {
-        Route::prefix('admin')->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::controller(AdminMainController::class)->group(function () {
             Route::get('/dashboard', 'index')->name('admin');
+            Route::get('/settings', 'setting')->name('admin.setting');
+            Route::get('/manage/users', 'manage_user')->name('admin.manage.user');
+            Route::get('/manage/stores', 'stores')->name('admin.manage.store');
+            Route::get('/cart/history', 'cart_history')->name('admin.cart.history');
+            Route::get('/order/history', 'order_history')->name('admin.order.history');
+
         });
     });
 });
