@@ -23,7 +23,7 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::controller(AdminMainController::class)->group(function () {
             Route::get('/dashboard', 'index')->name('admin');
-            Route::get('/settings', 'setting')->name('admin.setting');
+            Route::get('/settings', 'setting')->name('admin.settings');
             Route::get('/manage/users', 'manage_user')->name('admin.manage.user');
             Route::get('/manage/stores', 'stores')->name('admin.manage.store');
             Route::get('/cart/history', 'cart_history')->name('admin.cart.history');
@@ -42,7 +42,7 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
 
         Route::controller(ProductController::class)->group(function () {
             Route::get('/product/manage', 'index')->name('product.manage');
-            Route::get('/product/review/manage', 'manage')->name('product.review.manage');
+            Route::get('/product/review/manage', 'review_manage')->name('product.review.manage');
         });
 
         Route::controller(ProductAttributeController::class)->group(function () {
