@@ -9,6 +9,6 @@ class SellerMainController extends Controller
 {
     public function index()
     {
-        return view('seller.index');
+        return view('seller.dashboard');
     }
 }
