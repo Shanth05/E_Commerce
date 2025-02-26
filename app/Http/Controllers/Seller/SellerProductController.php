@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SellerMainController extends Controller
+class SellerProductController extends Controller
 {
     public function index()
     {
-        return view('seller.dashboard');
+        return view('seller.product.create');
     }
 
-    public function orderhistory()
+    public function manage()
     {
-        return view('seller.orderhistory');
+        return view('seller.product.manage');
     }
 }
