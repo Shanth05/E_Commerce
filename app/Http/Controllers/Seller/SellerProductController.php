@@ -7,5 +7,13 @@ use Illuminate\Http\Request;
 
 class SellerProductController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('seller.product.create');
+    }
+
+    public function manage()
+    {
+        return view('seller.product.manage');
+    }
 }
