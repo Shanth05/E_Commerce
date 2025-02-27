@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductDiscountController;
 use App\Http\Controllers\Seller\SellerMainController;
 use App\Http\Controllers\Seller\SellerProductController;
 use App\Http\Controllers\Seller\SellerStoreController;
+use App\Http\Controllers\Customer\CustomerMainController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,12 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified','rolemanager:customer'])->name('dashboard');
-
-
-//admoin routees
+//admin routees
 Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::controller(AdminMainController::class)->group(function () {
@@ -80,6 +76,16 @@ Route::middleware(['auth', 'verified','rolemanager:vendor'])->group(function () 
         });
     });
 });
+
+//customer routees
+Route::middleware(['auth', 'verified','rolemanager:customer'])->group(function () {
+    Route::prefix('user')->group(function () {
+        Route::controller(CustomerMainController::class)->group(function () {
+            Route::get('/dashboard', 'index')->name('dashboard');
+        });
+    });
+});
+
 
 //profile routes
 Route::middleware('auth')->group(function () {
