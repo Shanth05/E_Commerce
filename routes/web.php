@@ -82,6 +82,9 @@ Route::middleware(['auth', 'verified','rolemanager:customer'])->group(function (
     Route::prefix('user')->group(function () {
         Route::controller(CustomerMainController::class)->group(function () {
             Route::get('/dashboard', 'index')->name('dashboard');
+            Route::get('/order/history', 'history')->name('customer.history');
+            Route::get('/setting/payment', 'payment')->name('customer.payment');
+            Route::get('/setting/affiliate', 'affiliate')->name('customer.affiliate');
         });
     });
 });
