@@ -14,6 +14,8 @@ Create Category
                     @csrf
                     <label for="category_name" class="">Give Name of Your Category</label>
                     <input type="text" class="form-control" placeholder="Enter Category Name" required>
+                    <input type="text" class="form-control" placeholder="Enter Category Name" required>
+
             </div>
         </div>
     </div>
