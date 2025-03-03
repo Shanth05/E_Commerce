@@ -10,13 +10,15 @@ Create Category
                 <h5 class="card-title mb-0">Create Category</h5>
             </div>
             <div class="card-body">
-                <form action="" methods="post"></form>
+                <form action="{{route('store.cat')}}" method="POST">
                     @csrf
                     <label for="category_name" class="fw-bold mb-2">Give Name of Your Category</label>
-                    <input type="text" class="form-control" placeholder="Computer" required>
+                    <input type="text" class="form-control" name="category_name" placeholder="Computer" required>
 
                     <button type="submit" class="btn btn-primary w-100 mt-2">Add Category</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
 @endsection
