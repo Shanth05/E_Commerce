@@ -19,6 +19,6 @@ class MasterCategoryController extends Controller
 
     public function show($id){
         $category_info = Category::find($id);
-        return view('admin.category.edit', compact('category_infoegory'));
+        return view('admin.category.edit', compact('category_info'));
     }
 }
