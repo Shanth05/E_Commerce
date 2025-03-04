@@ -9,7 +9,7 @@ class MasterCategoryController extends Controller
 {
     public function storecat(Request $request){
         $validate_data = $request->validate([
-            'category_name' => 'unique:categories|max:100',
+            'category_name' => 'unique:categories|max:100|min:10',
         ]);
 
         Category::create($validate_data);
