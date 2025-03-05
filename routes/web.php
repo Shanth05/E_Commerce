@@ -57,7 +57,8 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
 
         Route::controller(MasterCategoryController::class)->group(function () {
             Route::post('/create/category', 'storecat')->name('store.cat');
-            Route::get('/category/{id}', 'show')->name('show.cat');
+            Route::get('/category/{id}', 'showcat')->name('show.cat');
+            Route::put('/category/update/{id}', 'updatecat')->name('update.cat');
         });
     });
 });
