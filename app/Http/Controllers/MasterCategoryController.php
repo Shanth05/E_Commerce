@@ -14,7 +14,7 @@ class MasterCategoryController extends Controller
 
         Category::create($validate_data);
 
-        return redirect()->back()->with('success', 'Category Added Successfully');
+        return redirect()->back()->with('message', 'Category Added Successfully');
     }
 
     public function showcat($id){
@@ -29,6 +29,12 @@ class MasterCategoryController extends Controller
         ]);
 
         $Category->update($validate_data);
-        return redirect()->back()->with('success', 'Category Updated Successfully');
+        return redirect()->back()->with('message', 'Category Updated Successfully');
+    }
+
+    public function deletecat($id){
+        $Category= Category::findOrFail($id)->delete();
+
+        return redirect()->back()->with('message', 'Category Deleted Successfully');
     }
 }
