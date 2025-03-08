@@ -11,6 +11,7 @@ use App\Http\Controllers\Seller\SellerProductController;
 use App\Http\Controllers\Seller\SellerStoreController;
 use App\Http\Controllers\Customer\CustomerMainController;
 use App\Http\Controllers\MasterCategoryController;
+use App\Http\Controllers\MasterSubCategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +61,10 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
             Route::get('/category/{id}', 'showcat')->name('show.cat');
             Route::put('/category/update/{id}', 'updatecat')->name('update.cat');
             Route::delete('/category/delete/{id}', 'deletecat')->name('delete.cat');
+        });
+
+        Route::controller(MasterSubCategoryController::class)->group(function () {
+            Route::post('/create/subcategory', 'storesubcat')->name('store.cat');
         });
     });
 });
