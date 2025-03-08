@@ -64,7 +64,7 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
         });
 
         Route::controller(MasterSubCategoryController::class)->group(function () {
-            Route::post('/create/subcategory', 'storesubcat')->name('store.cat');
+            Route::post('/create/subcategory', 'storesubcat')->name('store.subcat');
         });
     });
 });

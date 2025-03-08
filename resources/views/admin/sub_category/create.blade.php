@@ -31,11 +31,11 @@
                         <input type="text" class="form-control" name="subcategory_name" placeholder="Computer" required>
 
                         <label for="category_id" class="fw-bold mb-2">Select Category</label>
-                        <select name="category_id" class="form-control" id="category_id"></select>
+                        <select name="category_id" class="form-control" id="category_id">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>)           
+                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>           
                             @endforeach
-  
+                        </select>
                         <button type="submit" class="btn btn-primary w-100 mt-2">Add Sub Category</button>
                     </form>
                 </div>

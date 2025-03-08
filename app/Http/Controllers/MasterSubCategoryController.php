@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class MasterSubCategoryController extends Controller
 {
-    public function storecat(Request $request)
+    public function storesubcat(Request $request)
     {
        $validate_data = $request->validate([
         'subcategory_name' => 'unique:sub_categories|max:100|min:5',
