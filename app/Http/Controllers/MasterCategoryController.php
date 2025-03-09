@@ -33,7 +33,7 @@ class MasterCategoryController extends Controller
     }
 
     public function deletecat($id){
-        $Category= Category::findOrFail($id)->delete();
+       Category::findOrFail($id)->delete();
 
         return redirect()->back()->with('message', 'Category Deleted Successfully');
     }
