@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('default_attributes', function (Blueprint $table) {
             $table->id();
+            $table->string('attribute_value');
             $table->timestamps();
         });
     }
