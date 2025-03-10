@@ -23,12 +23,12 @@ class MasterCategoryController extends Controller
     }
 
     public function updatecat(Request $request, $id){
-        $Category= Category::findOrFail($id);
+        $category= Category::findOrFail($id);
         $validate_data = $request->validate([
             'category_name' => 'unique:categories|max:100|min:5',
         ]);
 
-        $Category->update($validate_data);
+        $category->update($validate_data);
         return redirect()->back()->with('message', 'Category Updated Successfully');
     }
 
