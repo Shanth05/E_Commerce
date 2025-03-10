@@ -28,7 +28,7 @@
                     <form action="{{ route('store.subcat') }} " method="POST">
                         @csrf
                         <label for="subcategory_name" class="fw-bold mb-2">Give Name of Your Sub Category</label>
-                        <input type="text" class="form-control" name="subcategory_name" placeholder="Computer" required>
+                        <input type="text" class="form-control" name="subcategory_name" placeholder="Computer">
 
                         <label for="category_id" class="fw-bold mb-2">Select Category</label>
                         <select name="category_id" class="form-control" id="category_id">
