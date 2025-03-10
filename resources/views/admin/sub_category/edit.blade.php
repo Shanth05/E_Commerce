@@ -30,7 +30,7 @@
                         @csrf
                         @method("PUT")
                         <label for="subcategory_name" class="fw-bold mb-2">Give Name of Your Sub Category</label>
-                        <input type="text" class="form-control" name="subcategory_name" value="{{ $subcategory_info->subcategory_name }}" required>
+                        <input type="text" class="form-control" name="subcategory_name" value="{{ $subcategory_info->subcategory_name }}">
 
                         <button type="submit" class="btn btn-primary w-100 mt-2">Update Sub Category</button>
                     </form>
