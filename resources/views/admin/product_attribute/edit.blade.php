@@ -1,13 +1,13 @@
 @extends('admin.layouts.layout')
 @section('admin_page_title')
-    Edit Sub Category
+    Edit Attribute
 @endsection
 @section('admin_layout')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Edit Sub Category</h5>
+                    <h5 class="card-title mb-0">Edit Attribute</h5>
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -26,13 +26,13 @@
                         </div>
                     @endif
 
-                    <form action="{{route('update.subcat',$subcategory_info->id)}} " method="POST">
+                    <form action="{{route('update.attribute',$attribute_info->id)}} " method="POST">
                         @csrf
                         @method("PUT")
-                        <label for="subcategory_name" class="fw-bold mb-2">Give Name of Your Sub Category</label>
-                        <input type="text" class="form-control" name="subcategory_name" value="{{ $subcategory_info->subcategory_name }}">
+                        <label for="attribute_value" class="fw-bold mb-2">Give Name of Your Attribute</label>
+                        <input type="text" class="form-control" name="attribute_value" value="{{ $attribute_info->attribute_value }}">
 
-                        <button type="submit" class="btn btn-primary w-100 mt-2">Update Sub Category</button>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Update Attribute</button>
                     </form>
                 </div>
             </div>
