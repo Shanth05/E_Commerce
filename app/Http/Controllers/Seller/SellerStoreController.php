@@ -15,7 +15,9 @@ class SellerStoreController extends Controller
 
     public function manage()
     {
-        return view('seller.store.manage');
+        $user_id = Auth()->user()->id;
+        $stores = Store::where('user_id', $user_id)->get();
+        return view('seller.store.manage', compact('stores'));
     }
 
     public function store(Request $request)
