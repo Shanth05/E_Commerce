@@ -248,7 +248,7 @@
 								<div class="dropdown-divider"></div>
 								<form action="{{ route('logout') }}" method="POST">
 									@csrf
-									<input type="submit" value="Logout" class="text-center btn btn-warning">
+									<input type="submit" value="Logout" class="ms-3 btn btn-warning">
 								</form>
 							</div>
 						</li>
