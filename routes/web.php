@@ -93,6 +93,7 @@ Route::middleware(['auth', 'verified','rolemanager:vendor'])->group(function () 
         Route::controller(SellerStoreController::class)->group(function () {
             Route::get('/store/create', 'index')->name('vendor.store');
             Route::get('/store/manage', 'manage')->name('vendor.store.manage');
+            Route::post('/store/publish', 'store')->name('create.store');
         });
     });
 });
