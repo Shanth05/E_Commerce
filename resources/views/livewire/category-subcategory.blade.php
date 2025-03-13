@@ -1,3 +1,3 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+    <p>Our category sub category livewire component</p>
 </div>
