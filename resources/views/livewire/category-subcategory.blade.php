@@ -1,5 +1,5 @@
 <div>
-    <select class="form-control" wire:model="selectedCategory">
+    <select class="form-control" wire:model.live="selectedCategory">
         <option value="">Select A Category</option>
         @foreach ($categories as $category)
             <option value="{{ $category->id }}">{{ $category->category_name }}</option>
