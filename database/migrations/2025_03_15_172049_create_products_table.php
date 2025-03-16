@@ -13,6 +13,23 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('product_name');
+            $table->longText('description');
+            $table->string('sku');
+            $table->foreignId('seller_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->foreignId('subcategory_id')->constrained('sub_categories')->onDelete('cascade');
+            $table->foreignId('store_id')->constrained('stores')->onDelete('cascade');
+            $table->decimal('regular_price', 8, 2);
+            $table->decimal('discounted_price', 8, 2)->nullable();
+            $table->decimal('tax_rate', 8, 2)->default(0.00);
+            $table->integer('stock_quantity')->default(0);
+            $table->enum('stock_status',['In Stock','Out of Stock'])->default('In Stock');
+            $table->string('slug')->uniqid();
+            $table->boolean('visibility')->default(false);
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->enum('status',['Draft','Published'])->default('Draft');
             $table->timestamps();
         });
     }
