@@ -27,6 +27,7 @@
                 @endif
                 <form action=" " method="POST">
                     @csrf
+
                     <label for="product_name" class="fw-bold mb-2">Give Name of Your Product</label>
                     <input type="text" class="form-control mb-2" name="product_name" placeholder="Lenovo Idealpad 5 Pro">
                     
@@ -35,8 +36,13 @@
                     
                     <label for="sku" class="fw-bold mb-2">SKU</label>
                     <input type="text" class="form-control mb-2" name="sku" placeholder="LXD3402">
-                    
                     <livewire:category-subcategory/>
+                    
+                    <label for="store_id" class="fw-bold mb-2">Select Your  Store For This Product</label>
+                    <select name="store_id" class="form-control mb-2">
+                        @foreach ($stores as $store)
+                            <option value="{{ $store->id }}">{{ $store->store_name }}</option>
+                        @endforeach
                     <button type="submit" class="btn btn-primary w-100 mt-2">Add Category</button>
                 </form>
             </div>
