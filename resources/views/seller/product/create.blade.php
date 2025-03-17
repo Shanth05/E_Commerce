@@ -43,6 +43,11 @@
                         @foreach ($stores as $store)
                             <option value="{{ $store->id }}">{{ $store->store_name }}</option>
                         @endforeach
+                    </select>
+
+                    <label for="regular_price" class="fw-bold mb-2">Product Regular Price</label>
+                    <input type="number" class="form-control mb-2" name="regular_price">
+               
                     <button type="submit" class="btn btn-primary w-100 mt-2">Add Category</button>
                 </form>
             </div>
