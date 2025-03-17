@@ -32,7 +32,7 @@
                     <input type="text" class="form-control mb-2" name="product_name" placeholder="Lenovo Idealpad 5 Pro">
                     
                     <label for="description" class="fw-bold mb-2">Give Name of Your Product</label>
-                    <textarea name="description" class="form-control mb-2" id="description" cols="30" rows="10"></textarea>
+                    <textarea name="text" class="form-control mb-2" id="description" cols="30" rows="10"></textarea>
                     
                     <label for="sku" class="fw-bold mb-2">SKU</label>
                     <input type="text" class="form-control mb-2" name="sku" placeholder="LXD3402">
@@ -43,6 +43,20 @@
                         @foreach ($stores as $store)
                             <option value="{{ $store->id }}">{{ $store->store_name }}</option>
                         @endforeach
+                    </select>
+
+                    <label for="regular_price" class="fw-bold mb-2">Product Regular Price</label>
+                    <input type="number" class="form-control mb-2" name="regular_price">
+                    
+                    <label for="discounted_price" class="fw-bold mb-2">Discounted Price (if any)</label>
+                    <input type="number" class="form-control mb-2" name="product_name">
+                    
+                    <label for="tax_rate" class="fw-bold mb-2">Give Name of Your Product</label>
+                    <input type="number" class="form-control mb-2" name="tax_rate">
+                    
+                    <label for="stock_quantity" class="fw-bold mb-2">Stock Quantity</label>
+                    <input type="number" class="form-control mb-2" name="tax_rate">
+                    
                     <button type="submit" class="btn btn-primary w-100 mt-2">Add Category</button>
                 </form>
             </div>
