@@ -36,7 +36,7 @@ class SellerProductController extends Controller
             'discounted_price'=>'nullable|numeric|min:0',
             'tax_rate'=>'required|numeric|min:0|max:100',
             'stock_quantity'=>'required|integer|min:0',
-            'images'=>'nullable|image|mimes:png,jpg,jpeg,gif|max:2048'
+            'images.*'=>'nullable|image|mimes:png,jpg,jpeg,gif|max:2048'
         ]);
 
         $product = Product::create([
