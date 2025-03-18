@@ -20,7 +20,9 @@ class SellerProductController extends Controller
 
     public function manage()
     {
-        return view('seller.product.manage');
+        $currentSeller = Auth::id();
+        $products = Product::where('seller_id', $currentSeller)->get();
+        return view('seller.product.manage',compact('products'));
     }
 
     public function storeproduct(Request $request)
@@ -41,7 +43,7 @@ class SellerProductController extends Controller
 
         $product = Product::create([
             'product_name'=>$request->product_name,
-            'description'=>$request->description,
+            'description'=>$request->description ?? '',
             'sku'=>$request->sku,
             'seller_id'=>Auth::id(),
             'category_id'=>$request->category_id,
