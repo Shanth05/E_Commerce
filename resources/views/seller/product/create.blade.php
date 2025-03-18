@@ -25,14 +25,14 @@
                         {{ session('message') }}
                     </div>
                 @endif
-                <form action="{{ route('vendor.product.store') }}" method="POST" enctype="multiple/form-data">
+                <form action="{{ route('vendor.product.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <label for="product_name" class="fw-bold mb-2">Give Name of Your Product</label>
                     <input type="text" class="form-control mb-2" name="product_name" placeholder="Lenovo Idealpad 5 Pro">
                     
                     <label for="description" class="fw-bold mb-2">Description</label>
-                    <textarea name="text" class="form-control mb-2" id="description" cols="30" rows="10"></textarea>
+                    <textarea name="description" class="form-control mb-2" id="description" cols="30" rows="10"></textarea>
                     
                     <label for="images" class="fw-bold mb-2">Upload Your Product's Images</label>
                     <input type="file" class="form-control mb-2" name="images[]" multiple>
@@ -52,13 +52,13 @@
                     <input type="number" class="form-control mb-2" name="regular_price">
                     
                     <label for="discounted_price" class="fw-bold mb-2">Discounted Price (if any)</label>
-                    <input type="number" class="form-control mb-2" name="product_name">
+                    <input type="number" class="form-control mb-2" name="discounted_price">
                     
                     <label for="tax_rate" class="fw-bold mb-2">Tax</label>
                     <input type="number" class="form-control mb-2" name="tax_rate">
                     
                     <label for="stock_quantity" class="fw-bold mb-2">Stock Quantity</label>
-                    <input type="number" class="form-control mb-2" name="tax_rate">
+                    <input type="number" class="form-control mb-2" name="stock_quantity">
                     
                     <label for="slug" class="fw-bold mb-2">Slug</label>
                     <input type="text" class="form-control mb-2" name="slug">
