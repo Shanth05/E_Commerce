@@ -87,6 +87,7 @@ Route::middleware(['auth', 'verified','rolemanager:vendor'])->group(function () 
 
         Route::controller(SellerProductController::class)->group(function () {
             Route::get('/product/create', 'index')->name('vendor.product');
+            Route::post('/product/store','storeproduct')->name('vendor.product.store');
             Route::get('/producte/manage', 'manage')->name('vendor.product.manage');
         });
 
