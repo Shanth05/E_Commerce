@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\Controller;
 use App\Models\Store;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,9 +29,9 @@ class SellerProductController extends Controller
             'product_name'=>'required|string|max:100',
             'description'=>'nullable|string',
             'sku'=>'required|string|unique:products,sku',
-            'category_id'=>'required|exits:categories,id',
-            'subcategory_id'=>'nullable|exits:subcategories,id',
-            'store_id'=>'required|exits:stores,id',
+            'category_id'=>'required|exists:categories,id',
+            'subcategory_id'=>'nullable|exists:sub_categories,id',
+            'store_id'=>'required|exists:stores,id',
             'regular_price'=>'required|numeric|min:0',
             'discounted_price'=>'nullable|numeric|min:0',
             'tax_rate'=>'required|numeric|min:0|max:100',
@@ -38,7 +39,7 @@ class SellerProductController extends Controller
             'images'=>'nullable|image|mimes:png,jpg,jpeg,gif|max:2048'
         ]);
 
-        Product::create([
+        $product = Product::create([
             'product_name'=>$request->product_name,
             'description'=>$request->description,
             'sku'=>$request->sku,
@@ -53,7 +54,20 @@ class SellerProductController extends Controller
             'slug'=>$request->slug,
             'meta_title'=>$request->meta_title,
             'meta_description'=>$request->meta_description,
-             
         ]);
+
+        //Handle multiple image upload
+        if ($request->hasFile('images')){
+            foreach($request->file('images') as $file){
+                $path = $file->store('product_images', 'public');
+                ProductImage::create([
+                    'product_id'=>$product->id,
+                    'img_path'=>$path,
+                    'is_primary'=>false, //set based on requirement
+                ]);
+            }
+
+            return redirect()->back()->with('message', 'Product added successfully');
+        }
     }
 }
