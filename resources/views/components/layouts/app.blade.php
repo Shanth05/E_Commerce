@@ -116,7 +116,7 @@
 <body>
     <header>
         <div class="logo">
-            <h1>Quickcart</h1>
+            <h1>Ecommerce Project</h1>
         </div>
         <div class="menu-toggle" id="menu-toggle">☰</div>
         <nav>
