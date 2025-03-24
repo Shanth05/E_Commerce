@@ -77,7 +77,6 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
     });
 });
 
-
 //vendor routees
 Route::middleware(['auth', 'verified','rolemanager:vendor'])->group(function () {
     Route::prefix('vendor')->group(function () {
@@ -111,7 +110,6 @@ Route::middleware(['auth', 'verified','rolemanager:customer'])->group(function (
         });
     });
 });
-
 
 //profile routes
 Route::middleware('auth')->group(function () {
